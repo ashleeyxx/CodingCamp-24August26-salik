@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Focus Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <h1 class="site-title">Focus Dashboard</h1>
+    <button id="theme-toggle" class="btn btn-icon" aria-label="Switch to dark mode" title="Toggle theme">
+      <span class="theme-icon">🌙</span>
+    </button>
+  </header>
+
+  <main class="dashboard-grid">
+
+    <!-- ===== GREETING SECTION ===== -->
+    <section class="card section-greeting" aria-labelledby="greeting-heading">
+      <h2 id="greeting-heading" class="sr-only">Greeting</h2>
+
+      <div class="greeting-display">
+        <p class="greeting-phrase" id="greeting-phrase">Good morning</p>
+        <p class="greeting-name"  id="greeting-name"></p>
+        <p class="greeting-time"  id="greeting-time">00:00</p>
+        <p class="greeting-date"  id="greeting-date">Monday, January 1, 2000</p>
+      </div>
+
+      <div class="name-edit">
+        <label for="name-input" class="form-label">Your name</label>
+        <input
+          type="text"
+          id="name-input"
+          class="form-input"
+          placeholder="Enter your name…"
+          autocomplete="off"
+          maxlength="50"
+        />
+      </div>
+    </section>
+
+    <!-- ===== POMODORO TIMER SECTION ===== -->
+    <section class="card section-timer" aria-labelledby="timer-heading">
+      <h2 id="timer-heading">Focus Timer</h2>
+
+      <div class="timer-display-wrap">
+        <span id="timer-display" class="timer-display">25:00</span>
+      </div>
+
+      <p id="timer-msg" class="timer-msg" aria-live="polite"></p>
+
+      <div class="timer-controls">
+        <button id="btn-start" class="btn btn-primary">Start</button>
+        <button id="btn-stop"  class="btn btn-secondary">Stop</button>
+        <button id="btn-reset" class="btn btn-secondary">Reset</button>
+      </div>
+
+      <div class="duration-setting">
+        <label for="timer-duration-input" class="form-label">Duration (minutes)</label>
+        <input
+          type="number"
+          id="timer-duration-input"
+          class="form-input form-input--small"
+          value="25"
+          min="1"
+          max="60"
+        />
+      </div>
+    </section>
+
+    <!-- ===== TO-DO LIST SECTION ===== -->
+    <section class="card section-todo" aria-labelledby="todo-heading">
+      <h2 id="todo-heading">To-Do List</h2>
+
+      <form id="todo-form" class="input-row" novalidate>
+        <label for="todo-input" class="sr-only">New task</label>
+        <input
+          type="text"
+          id="todo-input"
+          class="form-input"
+          placeholder="Add a new task…"
+          autocomplete="off"
+          maxlength="200"
+        />
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+
+      <p id="todo-error" class="error-msg" aria-live="polite"></p>
+
+      <div class="sort-bar">
+        <label for="todo-sort" class="form-label">Sort by</label>
+        <select id="todo-sort" class="form-select">
+          <option value="date">Date Added</option>
+          <option value="name">Name</option>
+          <option value="status">Status</option>
+        </select>
+      </div>
+
+      <ul id="todo-list" class="task-list" aria-label="Tasks"></ul>
+    </section>
+
+    <!-- ===== QUICK LINKS SECTION ===== -->
+    <section class="card section-links" aria-labelledby="links-heading">
+      <h2 id="links-heading">Quick Links</h2>
+
+      <form id="link-form" class="link-form" novalidate>
+        <div class="input-row">
+          <label for="link-label" class="sr-only">Link label</label>
+          <input
+            type="text"
+            id="link-label"
+            class="form-input"
+            placeholder="Label (e.g. GitHub)"
+            autocomplete="off"
+            maxlength="50"
+          />
+        </div>
+        <div class="input-row">
+          <label for="link-url" class="sr-only">Link URL</label>
+          <input
+            type="url"
+            id="link-url"
+            class="form-input"
+            placeholder="https://example.com"
+            autocomplete="off"
+            maxlength="500"
+          />
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </form>
+
+      <p id="link-error" class="error-msg" aria-live="polite"></p>
+
+      <ul id="link-list" class="link-list" aria-label="Quick links"></ul>
+    </section>
+
+  </main>
+
+  <!-- Message for users with JavaScript disabled -->
+  <noscript>
+    <div class="noscript-msg">
+      <strong>JavaScript is required</strong> to run Focus Dashboard.
+      Please enable JavaScript in your browser settings and reload the page.
+    </div>
+  </noscript>
+
+</body>
+</html>
